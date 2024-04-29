@@ -36,7 +36,7 @@ def create(request):
 
     new_blog.save()
 
-    return redirect('main: detail', new_blog.id)
+    return redirect('main:detail', new_blog.id)
 
 
 def update(request,id):

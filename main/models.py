@@ -4,7 +4,7 @@ from django.db import models
 
 class Post(models.Model):
     title= models.CharField(max_length=50)
-    stitle= models.CharField(max_length=30)
+    stitle= models.CharField(max_length=10)
     writer= models.CharField(max_length=30)
     body= models.TextField()
     pub_date= models.DateTimeField()
