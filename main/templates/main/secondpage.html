@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% block content %} 
+<h1 class="contents">2024 멋쟁이사자처럼 12기</h1> 
+<div class="contents">너무 잠와..</div> 
+<div> 
+    {% for blog in blogs %} 
+    <div> 
+        <hr/> 
+        <h3>{{blog.title}}</h3> 
+        {{blog.stitle}} | {{blog.writer}} | {{blog.pub_date}}<br> 
+        {{blog.summary}}
+        <a href="{% url 'main:detail' blog.id %}">자세히 보기</a> 
+        <br> 
+    </div> 
+    {% endfor %} 
+</div> 
+{% endblock %}
