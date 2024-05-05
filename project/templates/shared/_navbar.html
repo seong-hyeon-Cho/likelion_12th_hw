@@ -3,4 +3,27 @@
     <a class="navbar-link" href="{% url 'main:mainpage' %}">DGU_likelion_12th_hw</a> 
     <!-- secondpage 링크 연결 -->
     <a class="navbar-link" href="{% url 'main:secondpage' %}">Second Page</a>
-  </nav>
+  
+
+  <div class="nav-right">
+    {% if user.is_authenticated %}
+
+    <ul class="nav-link-accouts">
+      <li class="nav-link-user">{{user.username}}</li>
+      <li><a href="{% url 'accounts:logout' %}">로그아웃</a></li>
+      <li><a href="{% url 'users:mypage' %}">mypage</a></li>
+    </ul>
+    {% else %}
+    <ul class="nav-link-account">
+      <li><a href="{% url 'accounts:login' %}">로그인</a></li>
+      <li><a href="{% url 'accounts:signup' %}">signup</a></li>
+    </ul>
+    {% endif %}
+    </div>
+</nav>
+
+
+
+
+
+</nav>

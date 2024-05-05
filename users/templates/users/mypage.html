@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>My page</h1>
+<h2>내가 쓴 글만 가져오기</h2>
+{% if my_blogs %}
+  <ul>
+    {% for blog in my_blogs %}
+    <h3>{{blog.title}}</h3> 
+    {{blog.stitle}} | {{blog.writer}} | {{blog.pub_date}}<br> 
+    {{blog.summary}}
+        <a href="{% url 'main:detail' blog.id %}">자세히 보기</a>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No blogs found.</p>
+{% endif %}
+{% endblock %}
