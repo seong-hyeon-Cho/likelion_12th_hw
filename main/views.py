@@ -107,3 +107,15 @@ def tag_blogs(request, tag_id):
         'tag':tag,
         'blogs':blogs
     })
+
+def likes(request, blog_id):
+    blog = get_object_or_404(Post, id=blog_id)
+    if request.user in blog.like.all():
+        blog.like.remove(request.user)
+        blog.like_count -=1
+        blog.save()
+    else:
+        blog.like.add(request.user)
+        blog.like_count +=1
+        blog.save()
+    return redirect('main:detail', blog.id)

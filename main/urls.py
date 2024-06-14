@@ -14,4 +14,5 @@ urlpatterns = [
     path('tag-list',tag_list,name="tag-list"),
     path('tag-blogs/<int:tag_id>',tag_blogs,name="tag-blogs"),
     path('delete_comment/<int:comment_id>/',delete_comment, name='delete_comment'),
+    path('likes/<int:blog_id>', likes, name="likes"),
 ]
