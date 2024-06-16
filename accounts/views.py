@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import Profile
+from django.db import IntegrityError
 # Create your views here.
 
 def login(request):
@@ -35,19 +36,16 @@ def signup(request):
     if request.method=='POST':
        
        if request.POST['password']==request.POST['confirm']:
-        user= User.objects.create_user(
+            user= User.objects.create_user(
             username=request.POST['username'],
             password=request.POST['password']
-        )
 
-        # nickname=request.POST['nickname']
-        # department=request.POST['department']
-        
-        # profile=Profile(user=user, nickname=nickname, department=department)
-        # profile.save()
+            
+            )
 
-        auth.login(request, user)
-        return redirect('/')
+            auth.login(request, user)
+            return redirect('/')
+    
        
 
     return render(request, 'accounts/signup.html')
